@@ -39,3 +39,13 @@ module.exports.getCountrys = function(breweries){
 	
 	return countrys;
 }
+
+module.exports.filterBreweriesByCountry = function(breweries, country){
+	var newbreweries = [];
+	breweries.map(function(el){
+		if(el.country===country){
+			newbreweries.push(el);
+		}
+	});
+	return newbreweries;
+}

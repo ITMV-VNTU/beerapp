@@ -4,9 +4,7 @@ block content
   div
       a(href='/getBeers')
         h1 get beers
-      each item,i in data
-        - var colapse="colapse"+i;
-            div
-              h2 #{item.name}
-              h4 #{item.shortName}
-              p #{item.description}
+      a(href='/getBreweries')
+          h1 get breweries
+      a(href='/getBeer')
+          h1 get beer old
