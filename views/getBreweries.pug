@@ -2,9 +2,15 @@ extends layout
 
 block content
     div
+        h1 #{breweries_geocode[0].latitude}
         //h1 #{breweries[0].name}
         each item in breweries
             div
                 a(href="/getBeers?brewery_id="+ item.id)
                     h2 #{item.name}
                 p #{item.country}
+                - var location=breweries_geocode.find(function(elem){ return item.id === elem.brewery_id })
+                -if (location){
+                p lattitude #{location.latitude}
+                p longitude #{location.longitude}
+                -}
