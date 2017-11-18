@@ -6,5 +6,6 @@ block content
         each item in beers
             div
                 h2 #{item.name}
-                //h4 #{breweries[item.brewery_id].name}
+                - if(undefined!=breweries[item.brewery_id-1])
+                    h4 #{breweries[item.brewery_id-1].name}
                 p #{item.descript}
