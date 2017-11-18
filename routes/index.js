@@ -38,7 +38,7 @@ router.get('/', function(req, res, next) {
     newbeers = logic.filterBeers(beer);
     countrys = logic.getCountrys(brewerie);
 
-    res.render('index', { title:"Welcome" });
+    res.render('index', { title:"Welcome", data:{countrys}});
 });
 var json = require('json-file');
 var fs = require('fs');
@@ -52,9 +52,14 @@ router.get('/getBeers', function (req,res,next) {
 })
 
 router.get('/getBreweries', function (req,res,next) {
-    //var country = req.qu
-    res.render('getBreweries',{breweries:brewerie})
-
+    var country = req.query.country;
+    console.log(country);
+    if(country!=undefined){
+        var data = logic.filterBreweriesByCountry(brewerie, country);
+        res.render('getBreweries',{breweries:data});
+    }
+    else
+        res.render('getBreweries',{breweries:brewerie})
 })
 
 

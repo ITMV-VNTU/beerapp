@@ -8,3 +8,9 @@ block content
           h1 get breweries
       a(href='/getBeer')
           h1 get beer old
+      each item in data.countrys
+            div
+              a(href="/getBreweries?country="+ item.name)
+                  h2 #{item.name}
+              h4 #{item.count}
+

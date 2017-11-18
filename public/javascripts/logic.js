@@ -42,10 +42,18 @@ module.exports.getCountrys = function(breweries){
 
 module.exports.filterBreweriesByCountry = function(breweries, country){
 	var newbreweries = [];
-	breweries.map(function(el){
-		if(el.country===country){
-			newbreweries.push(el);
-		}
-	});
+	if(breweries!=null){
+		
+        breweries.map(function(el){
+		    
+		    if(el.country===country){
+			    newbreweries.push(el);
+		    }
+	    });
+	}
+	else{
+		console.log("breweries is null");
+	}
+	
 	return newbreweries;
 }
