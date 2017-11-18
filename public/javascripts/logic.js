@@ -29,14 +29,31 @@ function checkCountry(countrys, name){
 	}
 }
 
+function sortCountries(countrys){
+
+	countrys.sort(function(a,b){
+        var countA = a.count; 
+        var countB = b.count; 
+        if (countA > countB) {
+            return -1;
+        }
+        if (countA < countB) {
+            return 1;
+        }
+        // names must be equal
+        return 0;
+	});
+	console.log(countrys);
+	return countrys;
+}
+
 module.exports.getCountrys = function(breweries){
 	var countrys = [];
-	console.log("getCountrys");
 	breweries.map(function(el){
 		if(el.country!=undefined||el.country!='')
 		  checkCountry(countrys,el.country);
 	});
-	
+	countrys = sortCountries(countrys);
 	return countrys;
 }
 
