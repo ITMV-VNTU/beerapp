@@ -11,16 +11,25 @@
 
         // Create the data table.
         var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Topping');
-        data.addColumn('number', 'Slices');
-        data.addRows([
+        data.addColumn('string', 'Country');
+        data.addColumn('number', 'count');
+        var arr=[];
+        country.forEach(function (t) {
+            var a=[];
+            a.push(t.name);
+            a.push(t.count);
+            arr.push(a)
+        })
+          data.addRows(arr)
+
+        /*data.addRows([
           ['Mushrooms', 3],
           ['Onions', 1],
           ['Olives', 1],
           ['Zucchini', 1],
           ['Pepperoni', 2]
         ]);
-
+        */
         // Set chart options
         var options = {'title':'How Much Pizza I Ate Last Night',
                        'width':400,

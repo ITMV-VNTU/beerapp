@@ -38,7 +38,8 @@ router.get('/', function(req, res, next) {
     newbeers = logic.filterBeers(beer);
     countrys = logic.getCountrys(brewerie);
 
-    res.render('index', { title:"Welcome" });
+    res.render('index', { countries:countrys });
+    console.log(countrys)
 });
 var json = require('json-file');
 var fs = require('fs');

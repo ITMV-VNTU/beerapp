@@ -3,9 +3,6 @@ extends layout
 block content
     div
         //h1 #{breweries[0].name}
-        script(type="text/javascript" src="https://www.gstatic.com/charts/loader.js")
-        script(src='/javascripts/country_chart.js')
-        div(id="chart_div")
         each item in breweries
             div
                 h2 #{item.name}
