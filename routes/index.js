@@ -4,6 +4,8 @@ var BreweryDb = require('brewerydb-node');
 var brewdb = new BreweryDb('d7d54b992833aa6dc7c1478cb6833f70');
 
 var fetch = require('node-fetch')
+var jsonfile = require('jsonfile')
+var file = './beers.json'
 
 
 /* GET home page. */
@@ -14,23 +16,16 @@ router.get('/', function(req, res, next) {
 
     brewdb.style.all(function(error,data){
       beer=data;
-        //console.log(data)
-        fetch('http://api.brewerydb.com/v2/breweries?key=d7d54b992833aa6dc7c1478cb6833f70')
-        .then(function (response) {
-            console.log(response)
-            return response.json()
-                .then(function (data) {
-                    console.log(data)
-                })
-                .catch((error) => console.log("Error parse:"+error));
-        })
-        .catch(function(err){
-            console.log("Error fetch"+err);
-        });
         res.render('index', { data: beer });
     });
 
 
 });
+router.get('/getBeers', function (req,res,next) {
+    jsonfile.readFile(file, function(err, obj) {
+        console.log(obj)
+        res.render('getBeers',{data:obj})
+    })
+})
 
 module.exports = router;

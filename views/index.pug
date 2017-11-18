@@ -2,9 +2,11 @@ extends layout
 
 block content
   div
+      a(href='/getBeers')
+        h1 get beers
       each item,i in data
         - var colapse="colapse"+i;
             div
-              h1 #{item.name}
+              h2 #{item.name}
               h4 #{item.shortName}
               p #{item.description}
