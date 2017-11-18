@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8256ae23-980b-447e-b567-479062242416" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/getBeers.pug" afterPath="$PROJECT_DIR$/views/getBeers.pug" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.pug" afterPath="$PROJECT_DIR$/views/index.pug" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/getBreweries.pug" afterPath="$PROJECT_DIR$/views/getBreweries.pug" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,17 +37,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getBreweries.pug" pinned="false" current-in-tab="false">
+      <file leaf-file-name="getBreweries.pug" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/getBreweries.pug">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+            <state relative-caret-position="198">
+              <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getBeers.pug" pinned="false" current-in-tab="true">
+      <file leaf-file-name="getBeers.pug" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/getBeers.pug">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="161">
@@ -79,9 +77,9 @@
       <list>
         <option value="$APPLICATION_CONFIG_DIR$/javascript/nodejs/8.6.0/core-modules/async_hooks.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
-        <option value="$PROJECT_DIR$/views/getBreweries.pug" />
         <option value="$PROJECT_DIR$/views/index.pug" />
         <option value="$PROJECT_DIR$/views/getBeers.pug" />
+        <option value="$PROJECT_DIR$/views/getBreweries.pug" />
       </list>
     </option>
   </component>
@@ -130,6 +128,17 @@
             <path>
               <item name="beerapp" type="b2602c69:ProjectViewProjectNode" />
               <item name="beerapp" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="beerapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="beerapp" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="javascripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="beerapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="beerapp" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -173,12 +182,12 @@
       <option name="presentableId" value="Default" />
       <updated>1511002918365</updated>
       <workItem from="1511002927835" duration="11640000" />
-      <workItem from="1511016708760" duration="10384000" />
+      <workItem from="1511016708760" duration="12744000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22024000" />
+    <option name="totallyTimeSpent" value="24384000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
@@ -280,18 +289,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/getBreweries.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/getBeers.pug">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/getBreweries.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
           <folding />
         </state>
       </provider>
