@@ -47,8 +47,15 @@ var fs = require('fs');
 //var file = json.read('./beers.json');
 
 router.get('/getBeers', function (req,res,next) {
-    console.log(countrys);
-    res.render('getBeers',{beers:newbeers,breweries:brewerie,categories:categorie})
+    var brewery_id = req.query.brewery_id;
+    if(brewery_id!=undefined||brewery_id!=null){
+        var data = logic.filterBeersByBrewerie(newbeers, brewery_id);
+        console.log(data);
+        res.render('getBeers',{beers:data,breweries:brewerie,categories:categorie})
+    }
+    else{
+         res.render('getBeers',{beers:newbeers,breweries:brewerie,categories:categorie})
+    }
 })
 
 router.get('/getBreweries', function (req,res,next) {
@@ -61,7 +68,5 @@ router.get('/getBreweries', function (req,res,next) {
     else
         res.render('getBreweries',{breweries:brewerie})
 })
-
-
 
 module.exports = router;
