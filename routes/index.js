@@ -32,8 +32,19 @@ router.get('/getBeers', function (req,res,next) {
     var brewerie=JSON.parse(fs.readFileSync('./routes/breweries.json','utf8'))
     var beer = JSON.parse(fs.readFileSync('./routes/beers.json', 'utf8'));
     var categorie=JSON.parse(fs.readFileSync('./routes/categories.json','utf8'))
-    console.log(beer);
+    console.log(brewerie);
+
     res.render('getBeers',{beers:beer.beers,breweries:brewerie,categories:categorie})
+
+})
+router.get('/getBreweries', function (req,res,next) {
+
+    var brewerie=JSON.parse(fs.readFileSync('./routes/breweries.json','utf8'))
+    var beer = JSON.parse(fs.readFileSync('./routes/beers.json', 'utf8'));
+    var categorie=JSON.parse(fs.readFileSync('./routes/categories.json','utf8'))
+    console.log(brewerie);
+
+    res.render('getBreweries',{breweries:brewerie})
 
 })
 

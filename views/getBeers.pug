@@ -2,9 +2,11 @@ extends layout
 
 block content
     div
-        h1 #{breweries[0].name}
+        //h1 #{breweries[0].name}
         each item in beers
             div
+
                 h2 #{item.name}
-                //h4 #{breweries[item.brewery_id].name}
+                                h4 #{breweries[item.brewery_id].name}
                 p #{item.descript}
+                p #{item.brewery_id}
