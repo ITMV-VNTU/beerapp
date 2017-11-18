@@ -38,8 +38,10 @@ router.get('/', function(req, res, next) {
     newbeers = logic.filterBeers(beer);
     countrys = logic.getCountrys(brewerie);
 
+
     res.render('index', { countries:countrys });
     console.log(countrys)
+
 });
 var json = require('json-file');
 var fs = require('fs');
@@ -48,16 +50,26 @@ var fs = require('fs');
 //var file = json.read('./beers.json');
 
 router.get('/getBeers', function (req,res,next) {
-    console.log(countrys);
-    res.render('getBeers',{beers:newbeers,breweries:brewerie,categories:categorie})
+    var brewery_id = req.query.brewery_id;
+    if(brewery_id!=undefined||brewery_id!=null){
+        var data = logic.filterBeersByBrewerie(newbeers, brewery_id);
+        console.log(data);
+        res.render('getBeers',{beers:data,breweries:brewerie,categories:categorie})
+    }
+    else{
+         res.render('getBeers',{beers:newbeers,breweries:brewerie,categories:categorie})
+    }
 })
 
 router.get('/getBreweries', function (req,res,next) {
-    //var country = req.qu
-    res.render('getBreweries',{breweries:brewerie})
-
+    var country = req.query.country;
+    console.log(country);
+    if(country!=undefined){
+        var data = logic.filterBreweriesByCountry(brewerie, country);
+        res.render('getBreweries',{breweries:data});
+    }
+    else
+        res.render('getBreweries',{breweries:brewerie})
 })
-
-
 
 module.exports = router;

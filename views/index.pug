@@ -53,3 +53,8 @@ block content
              }
 
       div(id="chart_div")
+      each item in countries
+          div
+             a(href="/getBreweries?country="+ item.name)
+                h2 #{item.name}
+             h4 #{item.count}

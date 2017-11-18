@@ -23,7 +23,7 @@ function checkCountry(countrys, name){
 	});
 	if(flag){
 		var c = country;
-		c.name=name;
+		c.name = name;
 		c.count++;
 		countrys.push(c);
 	}
@@ -33,7 +33,7 @@ module.exports.getCountrys = function(breweries){
 	var countrys = [];
 	console.log("getCountrys");
 	breweries.map(function(el){
-		if(el.country!=undefined)
+		if(el.country!=undefined||el.country!='')
 		  checkCountry(countrys,el.country);
 	});
 	
@@ -42,10 +42,33 @@ module.exports.getCountrys = function(breweries){
 
 module.exports.filterBreweriesByCountry = function(breweries, country){
 	var newbreweries = [];
-	breweries.map(function(el){
-		if(el.country===country){
-			newbreweries.push(el);
-		}
-	});
+	if(breweries!=null){
+		
+        breweries.map(function(el){
+		    
+		    if(el.country===country){
+			    newbreweries.push(el);
+		    }
+	    });
+	}
+	else{
+		console.log("breweries is null");
+	}
+	
 	return newbreweries;
+}
+
+module.exports.filterBeersByBrewerie = function(beers, brewery_id){
+	var newbeers = [];
+	if(beers!=null){
+		beers.map(function(el){
+			if(el.brewery_id === brewery_id){
+				newbeers.push(el);
+			}
+		});
+	}
+	else{
+		console.log("no Beers");
+	}
+	return newbeers;
 }
