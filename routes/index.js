@@ -22,12 +22,10 @@ router.get('/getBeer', function(req, res, next) {
 
     var beer = null;
     // /beer/:beerId
-    brewdb.beer.find({ name:"Hitachino Nest Real Ginger Brew" }, function(error,data) {
-        console.log(data);
-    })
     brewdb.style.all(function(error,data){
-      beer=data;
-        res.render('getBeer', { data: beer });
+      beer=data
+        console.log(data,error);
+        res.render('getBeer', { data:data });
     });
 
 });

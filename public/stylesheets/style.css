@@ -9,3 +9,10 @@ a {
 #chart_div{
 float:right;
 }
+#country_container{
+  width:30%;
+  float: left;
+}
+.list-group-item>a{
+
+}
