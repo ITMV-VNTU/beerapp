@@ -74,7 +74,7 @@ router.post('/addComment', function(req, res){
                 });
         }
     } 
-    res.send();  
+    res.redirect('/showComments?='+id);  
 });
 
 router.get('/setComment', function(req, res, next) {
