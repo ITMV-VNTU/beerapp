@@ -19,5 +19,9 @@ block content
                                     h4 #{breweries[item.brewery_id-1].name}
                                 h4 ABV: #{item.abv}
                                 p #{item.descript}
+                                span(type="button" class="btn btn-default")
+                                    a(href="/setComment?id="+item.id) Leave comment 
+                                span(type="button" class="btn btn-default")
+                                    a(href="/showComments?id="+item.id) Show comments
 
 

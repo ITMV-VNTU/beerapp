@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    div(id='comments_container')
+                h3(class="reviews") Comments about this beer
+                ul(id="comments_list" class="media-list")
+                    each item in data
+                        li
+                            div(class="media-body")
+                                div(class="well well-lg")
+                                    h4(class="media-heading text-uppercase reviews") #{item.name}
+                                    p(class="media-comment") #{item.comment}

@@ -6,6 +6,9 @@ var brewdb = new BreweryDb('d7d54b992833aa6dc7c1478cb6833f70');
 var fetch = require('node-fetch')
 var jsonfile = require('jsonfile')
 var file = './routes/beers.json'
+var mongodb = require('mongodb');
+var MongoClient = mongodb.MongoClient;
+var mongoUrl = 'mongodb://Miroslav:Muruk@ds261755.mlab.com:61755/heroku_qz703p4t';
 
 var logic = require('../public/javascripts/logic.js');
 
@@ -16,7 +19,71 @@ var newbeers = null;
 var countrys = null;
 var breweries_geocode=null;
 
+var mongo;
+MongoClient
+  .connect(mongoUrl)
+  .then(function(db) {
+    mongo = db;
+    console.log("MDB connected");
+  })
+  .catch(function(err){
+    console.log(err);
+  });
+
+
 /* GET home page. */
+
+router.get('/showComments', function(req, res, next) {
+    var id = 0;
+    var data = [];
+    if(req.query.id!=null){
+        var id = req.query.id
+         mongo
+          .collection(id).find().toArray()
+          .then(function(dat) {
+            console.log("Seccess get from db");
+            console.log(dat);
+            data = dat;
+            res.render('showComments', { id:id, data:data});
+          })
+          .catch(function(err){
+            console.log(err);
+          });
+    }
+});
+
+router.post('/addComment', function(req, res){
+    var id = 0;
+    if(req.query.id!=undefined){
+        id = req.query.id;
+    }
+
+    if(req.body.name!=undefined||req.body.name!=""){
+        if(req.body.comment!=undefined||req.body.comment!=""){
+            var name = req.body.name;
+            console.log(name);
+            var comment = req.body.comment;
+            console.log(comment);
+            mongo
+                .collection(id).insert({ name: name, comment:comment })
+                .then(function() {
+                    console.log("Success create comment");
+                 })
+                .catch(function(err){
+                    console.log(err);
+                });
+        }
+    } 
+    res.send();  
+});
+
+router.get('/setComment', function(req, res, next) {
+    var id = 0;
+    if(req.query.id!=null){
+        var id = req.query.id
+    }
+    res.render('setComments', { id:id });
+});
 
 router.get('/getBeer', function(req, res, next) {
 
