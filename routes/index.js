@@ -9,7 +9,7 @@ var file = './routes/beers.json'
 var mongodb = require('mongodb');
 var MongoClient = mongodb.MongoClient;
 var mongoUrl = 'mongodb://Miroslav:Muruk@ds261755.mlab.com:61755/heroku_qz703p4t';
-
+//var mongoUrl = 'mongodb://localhost:27017/comments';
 var logic = require('../public/javascripts/logic.js');
 
 var brewerie = null;
@@ -74,7 +74,7 @@ router.post('/addComment', function(req, res){
                 });
         }
     } 
-    res.redirect('/showComments?='+id);  
+    res.redirect('/showComments?id='+id);  
 });
 
 router.get('/setComment', function(req, res, next) {
