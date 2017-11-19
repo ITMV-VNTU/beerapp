@@ -7,7 +7,7 @@ block content
 
     div(id='brewery_container' class="container")
       h1 Brewery List
-        each item in breweries
+      each item in breweries
             ul(class="list-group")
                 li(class="list-group-item")
                     a(href="/getBeers?brewery_id="+ item.id)
@@ -19,7 +19,6 @@ block content
                         p lattitude #{location.latitude}
                         p longitude #{location.longitude}
                     -}
-
     script.
       var map;
       function initMap(){
