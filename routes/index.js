@@ -64,8 +64,9 @@ router.post('/addComment', function(req, res){
             console.log(name);
             var comment = req.body.comment;
             console.log(comment);
+            var mark = req.body.mark;
             mongo
-                .collection(id).insert({ name: name, comment:comment })
+                .collection(id).insert({ name: name, comment:comment, mark:mark })
                 .then(function() {
                     console.log("Success create comment");
                  })
@@ -123,7 +124,6 @@ router.get('/getBeers', function (req,res,next) {
     var brewery_id = req.query.brewery_id;
     if(brewery_id!=undefined||brewery_id!=null){
         var data = logic.filterBeersByBrewerie(newbeers, brewery_id);
-        //console.log(data);
         res.render('getBeers',{beers:data,breweries:brewerie,categories:categorie})
     }
     else{
@@ -144,6 +144,4 @@ router.get('/getBreweries', function (req,res,next) {
     else  res.render('getBreweries',{breweries:brewerie,breweries_geocode:breweries_geocode})
 
 })
-
-
 module.exports = router;

@@ -43,7 +43,7 @@ function sortCountries(countrys){
         // names must be equal
         return 0;
 	});
-	console.log(countrys);
+	//console.log(countrys);
 	return countrys;
 }
 
