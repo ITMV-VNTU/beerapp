@@ -1,9 +1,11 @@
 extends layout
 
 block content
-  div
-      each item,i in data
-            div
-              h2 #{item.name}
-              h4 #{item.shortName}
-              p #{item.description}
+  div(id='brewery_container' class="container")
+    h1 Brewery List
+    each item,i in data
+        ul(class="list-group")
+                li(class="list-group-item")
+                    h4 #{item.name}
+                    h5 #{item.shortName}
+                    p #{item.description}
