@@ -1,14 +1,23 @@
 extends layout
 
 block content
-    div
-        //h1 #{breweries[0].name}
-        each item in beers
-            div
-                a(href='/getBearData?name='+item.name)
-                    h2 #{item.name}
-                - if(undefined!=breweries[item.brewery_id-1])
-                    h4 #{breweries[item.brewery_id-1].name}
+    div(id='beer-container' style="margin-top:7%")
+        h1 Beers List 
+        - if(beers==null)
+            h2 No beers
+        -else
+            each item in beers
+                ul(class="list-group")
+                    li(class="list-group-item")
+                        div(class="row")
+                            div(class="col-md-1")
+                                img(class="rounded float-right" style="height:100px;width:100px;" src='http://www.freakingnews.com/images/app_images/beer-mug-1.jpg')
+                            div(class="col-md-11")
+                                a(href='/getBearData?name='+item.name)
+                                    h2 #{item.name}
+                                - if(undefined!=breweries[item.brewery_id-1])
+                                    h4 #{breweries[item.brewery_id-1].name}
+                                h4 ABV: #{item.abv}
+                                p #{item.descript}
 
-                p #{item.descript}
 

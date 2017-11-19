@@ -1,29 +1,30 @@
 extends layout
 
 block content
-    div
+    
+    div(id='map' style='margin-top:20px;height:400px;width:100%;')
 
-        //h1 #{breweries_geocode[0].latitude}
-        //h1 #{breweries[0].name}
+    div(id='brewery_container' class="container")
         each item in breweries
-            div
-                a(href="/getBeers?brewery_id="+ item.id)
-                    h2 #{item.name}
-                p #{item.country}
-                - var location=breweries_geocode.find(function(elem){ return item.id === elem.brewery_id })
-                -if (location){
-                    p lattitude #{location.latitude}
-                    p longitude #{location.longitude}
-                -}
+            ul(class="list-group")
+                li(class="list-group-item")
+                    a(href="/getBeers?brewery_id="+ item.id)
+                        h2 #{item.name}
+                    h4 Country : #{item.country}
+                    p #{item.descript}
+                    - var location=breweries_geocode.find(function(elem){ return item.id === elem.brewery_id })
+                    -if (location){
+                        p lattitude #{location.latitude}
+                        p longitude #{location.longitude}
+                    -}
 
-        div(id='map' style='height:400px;width:100%;')
     script.
       var map;
       function initMap(){
         console.log("Init")
         map = new google.maps.Map(document.getElementById('map'),{
             center: { lat: 50, lng: 50 },
-            zoom: 8
+            zoom: 4
         });
         var geocoder = new google.maps.Geocoder()
         geocodeAddress(geocoder,map)
