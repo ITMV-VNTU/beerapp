@@ -1,10 +1,12 @@
 extends layout
 
 block content
-    
-    div(id='map' style='margin-top:20px;height:400px;width:100%;')
+
+  div(id="brewery_conteiner" style="margin:7%")    
+    div(id='map' style='height:400px;width:100%;')
 
     div(id='brewery_container' class="container")
+      h1 Brewery List
         each item in breweries
             ul(class="list-group")
                 li(class="list-group-item")
