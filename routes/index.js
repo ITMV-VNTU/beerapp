@@ -22,6 +22,9 @@ router.get('/getBeer', function(req, res, next) {
 
     var beer = null;
     // /beer/:beerId
+    brewdb.beer.find({ name:"Hitachino Nest Real Ginger Brew" }, function(error,data) {
+        console.log(data);
+    })
     brewdb.style.all(function(error,data){
       beer=data;
         res.render('getBeer', { data: beer });
@@ -72,8 +75,7 @@ router.get('/getBreweries', function (req,res,next) {
 
         res.render('getBreweries',{breweries:data,breweries_geocode:breweries_geocode});
     }
-    else
-        res.render('getBreweries',{breweries:brewerie,breweries_geocode:breweries_geocode})
+    else  res.render('getBreweries',{breweries:brewerie,breweries_geocode:breweries_geocode})
 })
 
 

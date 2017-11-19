@@ -3,9 +3,7 @@ extends layout
 block content
   div
       each item,i in data
-        - var colapse="colapse"+i;
             div
-              a(href='/getBreweries?country='+ #{item.name}) 
-                  h2 #{item.name}
+              h2 #{item.name}
               h4 #{item.shortName}
               p #{item.description}
