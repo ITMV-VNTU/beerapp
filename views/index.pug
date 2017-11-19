@@ -1,14 +1,12 @@
 extends layout
 
 block content
-  div
-      a(href='/getBeers')
-        h1 get beers
-      a(href='/getBreweries')
+  div(id='country_container' style='width:30%')
+      //a(href='/getBreweries')
           h1 get breweries
       //a(href='/getBeer')
           h1 get beer old
-      a(href='/api')
+      //a(href='/api')
         h1 api
       script(type="text/javascript" src="https://www.gstatic.com/charts/loader.js")
       script.
@@ -55,11 +53,11 @@ block content
                var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
                chart.draw(data, options);
              }
-
+      ul(class="list-group")
       each item in countries
-          ul(class="list-group")
             li(class="list-group-item")
                 a(href="/getBreweries?country="+item.name)
                     h2 #{item.name}
-                h4 #{item.count}
+                    h4
+                        span(class="badge badge-default") #{item.count}
   div(id="chart_div")
