@@ -1,7 +1,7 @@
 extends layout
 
 block content
-    form(action="/addComment?id="+id, method="POST",id='form_container',enctype="application/x-www-form-urlencoded")
+    form(action="/addComment?id="+id, method="POST",id='form_container',enctype="application/x-www-form-urlencoded" style="margin-top:7%;")
         div(class="form-group")
             label(for="usr") Name
             input(type="text" class="form-control" name="name" id="user")

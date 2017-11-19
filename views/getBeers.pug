@@ -13,8 +13,7 @@ block content
                             div(class="col-md-1")
                                 img(class="rounded float-right" style="height:100px;width:100px;" src='http://www.freakingnews.com/images/app_images/beer-mug-1.jpg')
                             div(class="col-md-11")
-                                a(href='/getBearData?name='+item.name)
-                                    h2 #{item.name}
+                                h2 #{item.name}
                                 - if(undefined!=breweries[item.brewery_id-1])
                                     h4 #{breweries[item.brewery_id-1].name}
                                 h4 ABV: #{item.abv}
