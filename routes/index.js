@@ -51,14 +51,11 @@ var fs = require('fs');
 // Load a JSON file
 //var file = json.read('./beers.json');
 
-
-
 router.get('/getBeers', function (req,res,next) {
     var brewery_id = req.query.brewery_id;
     if(brewery_id!=undefined||brewery_id!=null){
         var data = logic.filterBeersByBrewerie(newbeers, brewery_id);
         //console.log(data);
-       
         res.render('getBeers',{beers:data,breweries:brewerie,categories:categorie})
     }
     else{
