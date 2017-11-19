@@ -3,7 +3,7 @@ extends layout
 block content
     div
 
-        h1 #{breweries_geocode[0].latitude}
+        //h1 #{breweries_geocode[0].latitude}
         //h1 #{breweries[0].name}
         each item in breweries
             div
@@ -12,9 +12,10 @@ block content
                 p #{item.country}
                 - var location=breweries_geocode.find(function(elem){ return item.id === elem.brewery_id })
                 -if (location){
-                p lattitude #{location.latitude}
-                p longitude #{location.longitude}
+                    p lattitude #{location.latitude}
+                    p longitude #{location.longitude}
                 -}
+
         div(id='map' style='height:400px;width:100%;')
     script.
       var map;
@@ -50,3 +51,4 @@ block content
                });
       }
     script(async, defer, src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7hA_r-vEy3trOhThRoSgbTv9EkjGX-ok&callback=initMap")
+

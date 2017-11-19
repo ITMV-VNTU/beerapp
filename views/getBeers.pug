@@ -5,8 +5,10 @@ block content
         //h1 #{breweries[0].name}
         each item in beers
             div
-                h2 #{item.name}
+                a(href='/getBearData?name='+item.name)
+                    h2 #{item.name}
                 - if(undefined!=breweries[item.brewery_id-1])
                     h4 #{breweries[item.brewery_id-1].name}
+
                 p #{item.descript}
 
