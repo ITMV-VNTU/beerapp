@@ -16,8 +16,8 @@ block content
                     p #{item.descript}
                     - var location=breweries_geocode.find(function(elem){ return item.id === elem.brewery_id })
                     -if (location){
-                        p lattitude #{location.latitude}
-                        p longitude #{location.longitude}
+                        //p lattitude #{location.latitude}
+                        //p longitude #{location.longitude}
                     -}
     script.
       var map;
